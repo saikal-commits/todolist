@@ -40,9 +40,9 @@ function addProduct() {
     ) {
       alert("error");
     } else {
-      table.innerHTML = ''
+      table.innerHTML = "";
       let newProduct = {
-        id: productAll.length + 1,
+        id: ++countri,
         url: input.value,
         name: input1.value,
         price: input2.value,
@@ -90,16 +90,16 @@ add.addEventListener("click", () => {
 ///////////////////////////////////////////
 
 function updateIds() {
-  const rows = document.querySelectorAll('.table-body tr');
+  const rows = document.querySelectorAll(".table-body tr");
   rows.forEach((row, index) => {
-    const idCell = row.querySelector('th');
+    const idCell = row.querySelector("th");
     idCell.textContent = index + 1;
   });
 }
 
-table.addEventListener('click', (event) => {
-  if (event.target.classList.contains('btn-danger')) {
-    const row = event.target.closest('tr');
+table.addEventListener("click", (event) => {
+  if (event.target.classList.contains("btn-danger")) {
+    const row = event.target.closest("tr");
     row.remove();
     updateIds(); // Пересчет id после удаления строки
   }
